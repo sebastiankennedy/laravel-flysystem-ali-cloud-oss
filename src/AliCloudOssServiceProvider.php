@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace SebastianKennedy\LaravelFlySystemAliCloudOss;
 
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\ServiceProvider;

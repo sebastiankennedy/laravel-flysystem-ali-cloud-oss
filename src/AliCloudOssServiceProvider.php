@@ -6,14 +6,11 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\ServiceProvider;
 use League\Flysystem\Filesystem;
 use OSS\OssClient;
-use SebastianKennedy\LaravelFlySystemAliCloudOss\AliCloudOssAdapter;
 
 class AliCloudOssServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
-     *
-     * @return void
      */
     public function boot()
     {
@@ -33,8 +30,6 @@ class AliCloudOssServiceProvider extends ServiceProvider
 
     /**
      * Register the application services.
-     *
-     * @return void
      */
     public function register()
     {

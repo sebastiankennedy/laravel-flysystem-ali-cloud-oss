@@ -8,9 +8,7 @@ use OSS\OssClient;
 use OSS\Core\OssException;
 
 /**
- * Class AliCloudOssAdapter
- *
- * @package SebastianKennedy\LaravelFlySystemAliCloudOss
+ * Class AliCloudOssAdapter.
  */
 class AliCloudOssAdapter extends AbstractAdapter
 {
@@ -18,10 +16,12 @@ class AliCloudOssAdapter extends AbstractAdapter
      * @var \OSS\OssClient
      */
     protected $ossClient;
+
     /**
      * @var string
      */
     protected $bucket;
+
     /**
      * @var string
      */
@@ -63,7 +63,7 @@ class AliCloudOssAdapter extends AbstractAdapter
     }
 
     /**
-     * get upload file url
+     * get upload file url.
      *
      * @return string
      */
@@ -77,7 +77,7 @@ class AliCloudOssAdapter extends AbstractAdapter
      *
      * @param string   $path
      * @param resource $resource
-     * @param Config   $config Config object
+     * @param Config   $config   Config object
      *
      * @return array|false false on failure file meta data on success
      */
@@ -91,7 +91,7 @@ class AliCloudOssAdapter extends AbstractAdapter
      *
      * @param string $path
      * @param string $contents
-     * @param Config $config Config object
+     * @param Config $config   Config object
      *
      * @return array|false false on failure file meta data on success
      */
@@ -105,7 +105,7 @@ class AliCloudOssAdapter extends AbstractAdapter
      *
      * @param string   $path
      * @param resource $resource
-     * @param Config   $config Config object
+     * @param Config   $config   Config object
      *
      * @return array|false false on failure file meta data on success
      */

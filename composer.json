@@ -1,0 +1,20 @@
+{
+    "name": "sebastiankennedy\/laravel-flysystem-ali-cloud-oss",
+    "description": "Package description here.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "SebastianKennedy",
+            "email": "sebastiankennedy@foxmail.com"
+        }
+    ],
+    "require": {
+        "league/flysystem": "^1.0",
+        "aliyuncs/oss-sdk-php": "^2.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "SebastianKennedy\\LaravelFlySystemAliCloudOss\\": "src"
+        }
+    }
+}

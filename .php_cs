@@ -1,6 +1,6 @@
 <?php
 $header = <<<EOF
-This file is part of the sebastiankennedy/laravel-flysystem-alicloud-oss.
+This file is part of the sebastiankennedy/laravel-flysystem-ali-cloud-oss.
 
 (c) SebastianKennedy <sebastiankennedy@foxmail.com>
 

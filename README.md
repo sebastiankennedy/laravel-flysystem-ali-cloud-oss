@@ -1,6 +1,6 @@
-<h1 align="center"> :floppy_disk: laravel-flysystem-ali-cloud-oss </h1>
+<h1 align="center">laravel-flysystem-ali-cloud-oss </h1>
 
-<p align="center">一个针对阿里云 OSS 的 Laravel Flysystem Adapter</p>
+<p align="center">:floppy_disk: 一个针对阿里云 OSS 的 Laravel Flysystem Adapter</p>
 
 <p align="center">
 <a href="https://travis-ci.org/sebastiankennedy/laravel-flysystem-ali-cloud-oss"><img src="https://travis-ci.org/sebastiankennedy/laravel-flysystem-ali-cloud-oss.svg?branch=master" alt="Build Status"></a>

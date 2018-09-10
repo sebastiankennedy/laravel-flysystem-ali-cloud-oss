@@ -5,6 +5,7 @@ namespace SebastianKennedy\LaravelFlySystemAliCloudOss;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\ServiceProvider;
 use League\Flysystem\Filesystem;
+use OSS\OssClient;
 use SebastianKennedy\LaravelFlySystemAliCloudOss\AliCloudOssAdapter;
 
 class AliCloudOssServiceProvider extends ServiceProvider
@@ -22,7 +23,8 @@ class AliCloudOssServiceProvider extends ServiceProvider
             $endpoint = $config['endpoint'];
             $bucket = $config['bucket'];
 
-            $adapter = new AliCloudOssAdapter($accessKeyId, $accessKeySecret, $endpoint, $bucket);
+            $client = new OssClient($accessKeyId, $accessKeySecret, $endpoint);
+            $adapter = new AliCloudOssAdapter($client, $bucket);
             $fileSystem = new Filesystem($adapter);
 
             return $fileSystem;

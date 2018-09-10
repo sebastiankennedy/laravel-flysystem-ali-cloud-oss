@@ -30,21 +30,15 @@ class AliCloudOssAdapter extends AbstractAdapter
     /**
      * AliCloudOssAdapter constructor.
      *
-     * @param string $accessKeyId
-     * @param string $accessKeySecret
-     * @param string $endpoint
-     * @param string $bucket
+     * @param OssClient $ossClient
+     * @param string    $bucket
      *
      * @return mixed
      */
-    public function __construct(string $accessKeyId, string $accessKeySecret, string $endpoint, string $bucket)
+    public function __construct(OssClient $ossClient, string $bucket)
     {
-        try {
-            $this->ossClient = new OssClient($accessKeyId, $accessKeySecret, $endpoint);
-            $this->bucket = $bucket;
-        } catch (OssException $e) {
-            return false;
-        }
+        $this->ossClient = $ossClient;
+        $this->bucket = $bucket;
     }
 
     /**
@@ -60,7 +54,8 @@ class AliCloudOssAdapter extends AbstractAdapter
     {
         try {
             $response = $this->ossClient->uploadFile($this->bucket, $object, $file);
-            $this->ossRequestUrl = isset($response['oss-request-url']) ? $response['oss-request-url'] : null;
+            $this->ossRequestUrl = !empty($response['oss-request-url']) ? $response['oss-request-url'] : null;
+
             return $response;
         } catch (OssException $e) {
             return false;

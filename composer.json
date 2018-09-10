@@ -10,11 +10,13 @@
     ],
     "require": {
         "league/flysystem": "^1.0",
-        "aliyuncs/oss-sdk-php": "^2.3"
+        "aliyuncs/oss-sdk-php": "^2.3",
+        "phpunit/phpunit": "^7.3",
+        "mockery/mockery": "^1.1"
     },
     "autoload": {
         "psr-4": {
-            "SebastianKennedy\\LaravelFlySystemAliCloudOss\\": "src"
+            "SebastianKennedy\\LaravelFlySystemAliCloudOss\\": "./src/"
         }
     },
     "extra": {

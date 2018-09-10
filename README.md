@@ -6,7 +6,7 @@
 ## Installing
 
 ```shell
-$ composer require sebastiankennedy/laravel-flysystem-alicloud-oss -vvv
+$ composer require sebastiankennedy/laravel-flysystem-ali-cloud-oss -vvv
 ```
 
 ## Usage

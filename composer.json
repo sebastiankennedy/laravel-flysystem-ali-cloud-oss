@@ -16,5 +16,12 @@
         "psr-4": {
             "SebastianKennedy\\LaravelFlySystemAliCloudOss\\": "src"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "SebastianKennedy\\LaravelFlySystemAliCloudOss\\AliCloudOssServiceProvider"
+            ]
+        }
     }
 }

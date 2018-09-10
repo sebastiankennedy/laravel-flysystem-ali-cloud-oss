@@ -29,6 +29,8 @@ ALI_CLOUD_OSS_BUCKET=bucket
 
 2 `filesystem.php`
 ```
+<?php
+...
 'ali_cloud_oss' => [
     'driver' => 'ali_cloud_oss',
     'access_key_id' => env('ALI_CLOUD_OSS_ACCESS_KEY_ID'),
@@ -36,11 +38,15 @@ ALI_CLOUD_OSS_BUCKET=bucket
     'endpoint' => env('ALI_CLOUD_OSS_ENDPOINT'),
     'bucket' => env('ALI_CLOUD_OSS_BUCKET'),
 ],
+...
 ```
-3 `usage`
+3 `API`
 ```
+<?php
+...
 $storage = \Storage->disk('ali_cloud_oss');
 $storage->write($object, $path);
+...
 ```
 
 ## License

@@ -3,8 +3,8 @@
 <p align="center">一个针对阿里云 OSS 的 Laravel Flysystem Adapter</p>
 
 <p align="center">
-[![Build Status](https://travis-ci.org/sebastiankennedy/laravel-flysystem-ali-cloud-oss.svg?branch=master)](https://travis-ci.org/sebastiankennedy/laravel-flysystem-ali-cloud-oss)
-[![StyleCI](https://github.styleci.io/repos/148092914/shield?branch=master)](https://github.styleci.io/repos/148092914)
+<a href="https://travis-ci.org/sebastiankennedy/laravel-flysystem-ali-cloud-oss"><img src="https://travis-ci.org/sebastiankennedy/laravel-flysystem-ali-cloud-oss.svg?branch=master" alt="Build Status"></a>
+<a href="https://github.styleci.io/repos/148092914"><img src="https://github.styleci.io/repos/148092914/shield?branch=master" alt="StyleCI"></a>
 </p>
 
 ## 要求 - Requirement

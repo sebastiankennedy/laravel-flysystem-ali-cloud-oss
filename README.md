@@ -1,27 +1,47 @@
-<h1 align="center"> laravel-flysystem-alicloud-oss </h1>
+<h1 align="center"> :floppy_disk: laravel-flysystem-ali-cloud-oss </h1>
 
-<p align="center"> .</p>
+<p align="center">一个针对阿里云 OSS 的 Laravel Flysystem Adapter</p>
 
+<p align="center">
+[![Build Status](https://travis-ci.org/sebastiankennedy/laravel-flysystem-ali-cloud-oss.svg?branch=master)](https://travis-ci.org/sebastiankennedy/laravel-flysystem-ali-cloud-oss)
+[![StyleCI](https://github.styleci.io/repos/148092914/shield?branch=master)](https://github.styleci.io/repos/148092914)
+</p>
 
-## Installing
+## 要求 - Requirement
+
+- PHP >= 7.0
+- Laravel >= 5.5
+
+## 安装 - Installing
 
 ```shell
 $ composer require sebastiankennedy/laravel-flysystem-ali-cloud-oss -vvv
 ```
 
-## Usage
+## 使用 - Usage
+1`.env`
+```env
+ALI_CLOUD_OSS_ACCESS_KEY_ID=accessKeyId
+ALI_CLOUD_OSS_ACCESS_KEY_SECRET=accessKeySecret
+ALI_CLOUD_OSS_ENDPOINT=endpoint
+ALI_CLOUD_OSS_BUCKET=bucket
+```
 
-TODO
-
-## Contributing
-
-You can contribute in one of three ways:
-
-1. File bug reports using the [issue tracker](https://github.com/sebastiankennedy/laravel-flysystem-ali-cloud-oss/issues).
-2. Answer questions or fix bugs on the [issue tracker](https://github.com/sebastiankennedy/laravel-flysystem-ali-cloud-oss/issues).
-3. Contribute new features or update the wiki.
-
-_The code contribution process is not very formal. You just need to make sure that you follow the PSR-0, PSR-1, and PSR-2 coding guidelines. Any new code contributions must be accompanied by unit tests where applicable._
+2 `filesystem.php`
+```
+'ali_cloud_oss' => [
+    'driver' => 'ali_cloud_oss',
+    'access_key_id' => env('ALI_CLOUD_OSS_ACCESS_KEY_ID'),
+    'access_key_secret' => env('ALI_CLOUD_OSS_ACCESS_KEY_SECRET'),
+    'endpoint' => env('ALI_CLOUD_OSS_ENDPOINT'),
+    'bucket' => env('ALI_CLOUD_OSS_BUCKET'),
+],
+```
+3 `usage`
+```
+$storage = \Storage->disk('ali_cloud_oss');
+$storage->write($object, $path);
+```
 
 ## License
 

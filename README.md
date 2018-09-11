@@ -30,6 +30,7 @@ ALI_CLOUD_OSS_BUCKET=bucket
 2 `filesystem.php`
 ```php
 <?php
+
 ...
 'ali_cloud_oss' => [
     'driver' => 'ali_cloud_oss',
@@ -43,6 +44,7 @@ ALI_CLOUD_OSS_BUCKET=bucket
 3 `API`
 ```php
 <?php
+
 ...
 $storage = \Storage->disk('ali_cloud_oss');
 $storage->write($object, $path);

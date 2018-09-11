@@ -32,12 +32,14 @@ ALI_CLOUD_OSS_BUCKET=bucket
 <?php
 
 ...
-'ali_cloud_oss' => [
-    'driver' => 'ali_cloud_oss',
-    'access_key_id' => env('ALI_CLOUD_OSS_ACCESS_KEY_ID'),
-    'access_key_secret' => env('ALI_CLOUD_OSS_ACCESS_KEY_SECRET'),
-    'endpoint' => env('ALI_CLOUD_OSS_ENDPOINT'),
-    'bucket' => env('ALI_CLOUD_OSS_BUCKET'),
+'disks' => [
+    'ali_cloud_oss' => [
+        'driver' => 'ali_cloud_oss',
+        'access_key_id' => env('ALI_CLOUD_OSS_ACCESS_KEY_ID'),
+        'access_key_secret' => env('ALI_CLOUD_OSS_ACCESS_KEY_SECRET'),
+        'endpoint' => env('ALI_CLOUD_OSS_ENDPOINT'),
+        'bucket' => env('ALI_CLOUD_OSS_BUCKET'),
+    ],
 ],
 ...
 ```

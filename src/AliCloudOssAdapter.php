@@ -5,7 +5,6 @@ namespace SebastianKennedy\LaravelFlySystemAliCloudOss;
 use League\Flysystem\Config;
 use League\Flysystem\Adapter\AbstractAdapter;
 use OSS\OssClient;
-use OSS\Core\OssException;
 
 /**
  * Class AliCloudOssAdapter.
@@ -16,16 +15,10 @@ class AliCloudOssAdapter extends AbstractAdapter
      * @var \OSS\OssClient
      */
     protected $ossClient;
-
     /**
      * @var string
      */
     protected $bucket;
-
-    /**
-     * @var string
-     */
-    protected $ossRequestUrl;
 
     /**
      * AliCloudOssAdapter constructor.
@@ -52,24 +45,7 @@ class AliCloudOssAdapter extends AbstractAdapter
      */
     public function write($object, $file, Config $config)
     {
-        try {
-            $response = $this->ossClient->uploadFile($this->bucket, $object, $file);
-            $this->ossRequestUrl = !empty($response['oss-request-url']) ? $response['oss-request-url'] : null;
-
-            return $response;
-        } catch (OssException $e) {
-            return false;
-        }
-    }
-
-    /**
-     * get upload file url.
-     *
-     * @return string
-     */
-    public function getRequestUrl()
-    {
-        return $this->ossRequestUrl;
+        return true;
     }
 
     /**
@@ -77,7 +53,7 @@ class AliCloudOssAdapter extends AbstractAdapter
      *
      * @param string   $path
      * @param resource $resource
-     * @param Config   $config   Config object
+     * @param Config   $config Config object
      *
      * @return array|false false on failure file meta data on success
      */
@@ -91,7 +67,7 @@ class AliCloudOssAdapter extends AbstractAdapter
      *
      * @param string $path
      * @param string $contents
-     * @param Config $config   Config object
+     * @param Config $config Config object
      *
      * @return array|false false on failure file meta data on success
      */
@@ -105,7 +81,7 @@ class AliCloudOssAdapter extends AbstractAdapter
      *
      * @param string   $path
      * @param resource $resource
-     * @param Config   $config   Config object
+     * @param Config   $config Config object
      *
      * @return array|false false on failure file meta data on success
      */

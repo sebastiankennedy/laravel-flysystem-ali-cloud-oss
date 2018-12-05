@@ -4,6 +4,7 @@ namespace SebastianKennedy\LaravelFlySystemAliCloudOss;
 
 use League\Flysystem\Config;
 use League\Flysystem\Adapter\AbstractAdapter;
+use OSS\Core\OssException;
 use OSS\OssClient;
 
 /**
@@ -19,6 +20,18 @@ class AliCloudOssAdapter extends AbstractAdapter
      * @var string
      */
     protected $bucket;
+    /**
+     * @var array
+     */
+    protected $options = [];
+    /**
+     * @var array
+     */
+    protected static $mappingOptions = [
+        'mimetype' => OssClient::OSS_CONTENT_TYPE,
+        'size' => OssClient::OSS_LENGTH,
+        'filename' => OssClient::OSS_CONTENT_DISPOSTION,
+    ];
 
     /**
      * AliCloudOssAdapter constructor.
@@ -35,15 +48,56 @@ class AliCloudOssAdapter extends AbstractAdapter
     }
 
     /**
+     * Upload a new file
+     *
+     * @param        $object
+     * @param        $filePath
+     * @param Config $config
+     *
+     * @return bool|null
+     */
+    public function uploadFile($object, $filePath, Config $config)
+    {
+        try {
+            $config = $this->getOptionsFromConfig($config);
+            $response = $this->ossClient->uploadFile($this->bucket, $object, $filePath, $config);
+
+            return $response;
+        } catch (OssException $e) {
+            return false;
+        }
+    }
+
+    /**
+     * Get oss options from config
+     *
+     * @param Config $config
+     *
+     * @return array
+     */
+    public function getOptionsFromConfig(Config $config)
+    {
+        $options = $this->options;
+        foreach (static::$mappingOptions as $option => $ossOption) {
+            if (!$config->has($option)) {
+                continue;
+            }
+            $options[$ossOption] = $config->get($option);
+        }
+
+        return $options;
+    }
+
+    /**
      * Write a new file.
      *
-     * @param string $object
-     * @param string $file
+     * @param string $path
+     * @param string $contents
      * @param Config $config Config object
      *
      * @return array|false false on failure file meta data on success
      */
-    public function write($object, $file, Config $config)
+    public function write($path, $contents, Config $config)
     {
         return true;
     }

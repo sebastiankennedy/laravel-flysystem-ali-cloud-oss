@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\ServiceProvider;
 use League\Flysystem\Filesystem;
 use OSS\OssClient;
+use SebastianKennedy\LaravelFlySystemAliCloudOss\Plugins\UploadFile;
 
 class AliCloudOssServiceProvider extends ServiceProvider
 {
@@ -23,6 +24,8 @@ class AliCloudOssServiceProvider extends ServiceProvider
             $client = new OssClient($accessKeyId, $accessKeySecret, $endpoint);
             $adapter = new AliCloudOssAdapter($client, $bucket);
             $fileSystem = new Filesystem($adapter);
+
+            $fileSystem->addPlugin(new UploadFile());
 
             return $fileSystem;
         });

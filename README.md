@@ -49,7 +49,9 @@ ALI_CLOUD_OSS_BUCKET=bucket
 
 ...
 $storage = \Storage->disk('ali_cloud_oss');
-$storage->write($object, $path);
+
+// 上传文件
+$storage->uploadFile($object, $path);
 ...
 ```
 
